@@ -12,7 +12,7 @@ public class GuiApp1 extends Frame {
         setLayout(new FlowLayout());
         add(b1 = new Button("Click"));
         add(t1 = new TextField(20));
-        add(b2 = new Button("Click"));
+        add(b2 = new Button("Clear"));
         b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 t1.setText("Hello World");
