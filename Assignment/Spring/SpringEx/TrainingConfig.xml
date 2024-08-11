@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xmlns:p="http://www.springframework.org/schema/p"
+		xmlns:c="http://www.springframework.org/schema/c"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-3.0.xsd
+			http://www.springframework.org/schema/tx
+			http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+		<bean id = "coreJavaCourse" class = "Spring.SpringEx.CoreJavaCourse">
+			<constructor-arg value="80" />
+			<constructor-arg>
+				<list>
+					<value>OOPS</value>
+					<value>CoreJava.Threads</value>
+					<value>CoreJava.IO</value>
+					<value>CoreJava.Collections</value>
+				</list>
+			</constructor-arg>
+			<constructor-arg value="10000" />
+		</bean>
+
+	<bean id = "advancedJavaCourse" class = "Spring.SpringEx.AdvancedJavaCourse">
+		<constructor-arg value="80" />
+		<constructor-arg>
+			<list>
+				<value>RMI</value>
+				<value>AdvancedJava.Servlets</value>
+				<value>AdvancedJava.JDBC</value>
+				<value>JSP</value>
+			</list>
+		</constructor-arg>
+		<constructor-arg value="10000" />
+	</bean>
+
+	<bean id = "struts2Course" class = "Spring.SpringEx.Struts2Course">
+		<property name = "courseDuration" value="40" />
+		<property name = "courseContents">
+			<list>
+				<value>Interceptors</value>
+				<value>Validation</value>
+				<value>I18N</value>
+				<value>CustomTags</value>
+			</list>
+		</property>
+		<property name = "CourseFees" value="6000" />
+	</bean>
+
+	<bean id = "hibernateCourse" class = "Spring.SpringEx.HibernateCourse">
+		<property name = "courseDuration" value="40" />
+		<property name = "courseContents">
+			<list>
+				<value>Mapping Documents</value>
+				<value>Persistent Objects</value>
+				<value>HQL</value>
+				<value>Transactions</value>
+			</list>
+		</property>
+		<property name = "CourseFees" value="6000" />
+	</bean>
+
+	<bean id = "ejb3Course" class = "Spring.SpringEx.EJB3Course">
+		<property name = "courseDuration" value="40" />
+		<property name = "courseContents">
+			<list>
+				<value>SessionBeans</value>
+				<value>MDBS</value>
+				<value>JPA</value>
+			</list>
+		</property>
+		<property name = "CourseFees" value="6000" />
+	</bean>
+
+	<bean id = "dotNetCourse" class = "Spring.SpringEx.DotNetCourse">
+		<property name = "courseDuration" value="80" />
+		<property name = "courseContents">
+			<list>
+				<value>C#</value>
+				<value>ADO.net</value>
+				<value>ASP.net</value>
+			</list>
+		</property>
+		<property name = "CourseFees" value="10000" />
+	</bean>
+
+	<bean id = "androidCourse" class = "Spring.SpringEx.AndroidCourse">
+		<property name = "courseDuration" value="80" />
+		<property name = "courseContents">
+			<list>
+				<value>Activities</value>
+				<value>Services</value>
+				<value>BrodcastRecievers</value>
+				<value>ContentProviders</value>
+			</list>
+		</property>
+		<property name = "CourseFees" value="10000" />
+	</bean>
+
+	<bean id = "sanjay" class="Spring.SpringEx.JavaTrainer">
+		<constructor-arg value="Sanjay Makhija"/>
+		<constructor-arg>
+			<set>
+				<value>Core Java</value>
+				<value>Advanced Java</value>
+				<value>Struts2</value>
+				<value>Spring</value>
+				<value>EJB</value>
+			</set>
+		</constructor-arg>
+	</bean>
+
+	<bean id = "prafull" class="Spring.SpringEx.JavaTrainer">
+		<constructor-arg value="Prafull Vernekar"/>
+		<constructor-arg>
+			<set>
+				<value>Core Java</value>
+				<value>Advanced Java</value>
+				<value>Struts2</value>
+				<value>Spring</value>
+				<value>EJB</value>
+			</set>
+		</constructor-arg>
+	</bean>
+
+	<bean id = "pankaj" class="Spring.SpringEx.DotNetTrainer">
+		<property name = "name" value="Pankaj Upadhya"/>
+		<property name = "specialties">
+			<set>
+				<value>C#</value>
+				<value>ADO</value>
+				<value>ASP</value>
+			</set>
+		</property>
+	</bean>
+
+	<bean id = "ajay" class="Spring.SpringEx.AndroidTrainer">
+		<property name = "name" value="Ajay Bhosekar"/>
+		<property name = "specialties">
+			<set>
+				<value>android</value>
+			</set>
+		</property>
+	</bean>
+
+	<bean id = "mikado" class="Spring.SpringEx.MikadoSolutions" factory-method="getMikadoSolutions">
+		<property name = "trainers">
+			<list>
+				<ref bean = "sanjay"/>
+				<ref bean = "prafull"/>
+				<ref bean = "pankaj"/>
+				<ref bean = "pankaj"/>
+				<ref bean = "ajay"/>
+			</list>
+		</property>
+		<property name="courses">
+			<set>
+				<ref bean = "coreJavaCourse"/>
+				<ref bean = "advancedJavaCourse"/>
+				<ref bean = "struts2Course"/>
+				<ref bean = "hibernateCourse"/>
+				<ref bean = "ejb3Course"/>
+				<ref bean = "dotNetCourse"/>
+				<ref bean = "androidCourse"/>
+			</set>
+		</property>
+	</bean>
+
+	<bean id="trainingWorkshop" class="Spring.SpringEx.TrainingWorkshop"  p:trainingCompany-ref="mikado"/>
+
+</beans>
